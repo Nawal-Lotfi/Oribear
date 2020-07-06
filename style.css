@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Sofia Regular";
+  src: url("fonts/Sofia-Regular.otf") type("Opentype");
+}
+
+@font-face {
+  font-family: "coertschrift_dik";
+  src: url("fonts/coertschrift_dik.ttf") type("Truetype");
+}
+
+@font-face {
+  font-family: "Uglyyy";
+  src: url("fonts/uglyyy.ttf") type("Truetype");
+}
+
+.navbar-brand {
+  font-family: "coertschrift_dik", "Uglyyy";
+}
+
+#colorChoice {
+  width: 8em;
+  margin: auto;
+}
+
+.cart {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  min-height: 10rem;
+  top: 70px;
+  right: 80px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 0;
+  height: 0;
+}
+
+.cart img {
+  width: 90px;
+  height: 70px;
+}
+
+.show-cart {
+  width: 18rem;
+  padding: 2rem 1.5rem;
+  -webkit-transform: rotateY(-360deg);
+          transform: rotateY(-360deg);
+}
+
+.cart-info {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  cursor: pointer;
+}
+
+body {
+  background-color: #0f878b;
+}
+
+body .card {
+  background-color: #a2dbe2;
+  margin-top: 30px;
+  font-family: "Sofia Regular";
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.teddy-btn {
+  position: relative;
+  bottom: 3%;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 150px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.teddy-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+.carouselNo1 {
+  margin: auto;
+}
+
+.colorSelect {
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.product .teddyImage {
+  width: 45%;
+  height: 40%;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product .teddyName {
+  margin: auto;
+}
+
+.product .teddyDescription {
+  margin: auto;
+}
+
+.product .teddyPrice {
+  margin: auto;
+}
+
+.product .selectTeddy {
+  width: 160px;
+  margin: auto;
+}
+
+@media all and (max-width: 1024px) {
+  .card-deck {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+/*# sourceMappingURL=style.css.map */
