@@ -14,3 +14,27 @@
 [0706/184205.094:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0706/185705.096:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0706/185705.096:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0706/191205.097:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0706/191205.098:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0706/191809.823:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
+[0706/191810.088:ERROR:exception_snapshot_win.cc(98)] thread ID 4408 not found in process
+[0707/113941.098:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/113941.101:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/114941.107:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/114941.107:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/114941.108:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/114941.108:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/115441.102:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/115441.102:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/120941.102:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/120941.103:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/122441.104:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/122441.104:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/123941.107:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/123941.107:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/125441.107:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/125441.107:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/130941.108:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/130941.109:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/132441.111:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0707/132441.111:ERROR:crash_report_database_win.cc(469)] failed to stat report
