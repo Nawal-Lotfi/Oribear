@@ -19,29 +19,24 @@ request.send();
 
 function renderHTML(data) {
     const div = document.createElement('div');
-    console.log(data);
     const colors = data.colors;
     div.setAttribute('class', 'product');
-    console.log(colors);
 
-    div.innerHTML += "<img class=\"teddyImage\" src=\"" + data.imageUrl + "\"><h1 class=\"teddyName\"> " + data.name + "</h1 > <p class=\"teddyDescription\">" + data.description + "</p><p class =\"teddyPrice\">" + data.price / 100 + " €</p><button class=\"selectTeddy\">Choisir cet ourson</button><select id=\"colorChoice\"></select>";
+    div.innerHTML += "<img class=\"teddyImage\" src=\"" + data.imageUrl + "\"><h1 class=\"teddyName\"> " + data.name + "</h1 > <p class=\"teddyDescription\">" + data.description + "</p><p class =\"teddyPrice\">" + data.price / 100 + " €</p><button id=\"submitButton\" class=\"selectTeddy\">Choisir cet ourson</button><select id=\"colorChoice\"></select>";
     product.appendChild(div);
 
     const form = document.getElementById('colorChoice');
 
     colors.forEach(displayColor);
 
-    async function displayColor(item) {
+    function displayColor(item) {
         document.getElementById("colorChoice").innerHTML += "<option>" + item + "</option>";
     };
-
-
 
     div.appendChild(form);
 };
 
-
-
+/* ------------------------- Localstorage ------------------------- */
 
 
 
