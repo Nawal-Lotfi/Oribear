@@ -17,12 +17,12 @@ const insertPost = async function (data) {
     return repJson;
 }
 
-/* ------------------------- Localstorage ------------------------- */
-
-
+/* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', function (e) {
     e.preventDefault();
+
+    console.log('clap')
 
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -31,17 +31,18 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     const email = document.getElementById('email').value;
 
     const contact = { "firstName": firstName, "lastName": lastName, "address": address, "city": city, "email": email };
-    const products = ["5beaaa8f1c9d440000a57d95"]
+    const products = [localStorage.getItem('products')];
     const order = { contact, products };
 
     insertPost({ "contact": contact, "products": products }).then(data => console.log(data));
 
     const myJSON = JSON.stringify(contact);
     localStorage.setItem('contactData', myJSON);
-})
+});
 
 
-/* ------------------------- Cart functions -------------------------
+
+/* ------------------------- Cart functions ------------------------- */
 
 function incrementCart(ev) {
 
@@ -67,6 +68,5 @@ function errorMessage(err) {
 
     console.error(err);
 }
-*/
 
 

@@ -61,7 +61,8 @@ body{
     }
 }
 
-.teddy-btn{
+.teddy-btn,
+#addTeddy{
     position: relative;
     bottom: 3%;
     border: 2px solid black;
@@ -138,6 +139,14 @@ form{
     }
 }
 
+/* ------------------------- Thanks ------------------------- */
+
+.blop{
+    p{
+        text-align: center;
+        color: red;
+    }
+}
 
 /* ------------------------- Responsive ------------------------- */
 

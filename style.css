@@ -65,7 +65,8 @@ body .card {
       flex-wrap: wrap;
 }
 
-.teddy-btn {
+.teddy-btn,
+#addTeddy {
   position: relative;
   bottom: 3%;
   border: 2px solid black;
@@ -76,7 +77,8 @@ body .card {
   margin-bottom: 25px;
 }
 
-.teddy-btn a {
+.teddy-btn a,
+#addTeddy a {
   text-decoration: none;
   color: black;
 }
@@ -151,6 +153,12 @@ form input {
 
 form button {
   margin-left: 6em;
+}
+
+/* ------------------------- Thanks ------------------------- */
+.blop p {
+  text-align: center;
+  color: red;
 }
 
 /* ------------------------- Responsive ------------------------- */

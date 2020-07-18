@@ -22,7 +22,7 @@ function renderHTML(data) {
     const colors = data.colors;
     div.setAttribute('class', 'product');
 
-    div.innerHTML += "<img class=\"teddyImage\" src=\"" + data.imageUrl + "\"><h1 class=\"teddyName\"> " + data.name + "</h1 > <p class=\"teddyDescription\">" + data.description + "</p><p class =\"teddyPrice\">" + data.price / 100 + " €</p><button id=\"submitButton\" class=\"selectTeddy\">Choisir cet ourson</button><select id=\"colorChoice\"></select>";
+    div.innerHTML += "<img class=\"teddyImage\" src=\"" + data.imageUrl + "\"><h1 class=\"teddyName\">" + data.name + "</h1><p class=\"teddyDescription\">" + data.description + "</p><p class =\"teddyPrice\">" + data.price / 100 + " €</p><select id=\"colorChoice\"></select>";
     product.appendChild(div);
 
     const form = document.getElementById('colorChoice');
@@ -33,11 +33,18 @@ function renderHTML(data) {
         document.getElementById("colorChoice").innerHTML += "<option>" + item + "</option>";
     };
 
+    div.appendChild(document.getElementById('addTeddy'));
     div.appendChild(form);
 };
+/* ------------------------- Localstorage and Cart ------------------------- */
 
-/* ------------------------- Localstorage ------------------------- */
+document.getElementById('product').addEventListener('click', function (a) {
+    //a.preventDefault();
 
+    const products = [idUrl]
+
+    localStorage.setItem('products', products);
+});
 
 
 
