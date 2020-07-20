@@ -1,7 +1,3 @@
-/* ------------------------- Constantes ------------------------- */
-
-
-
 /* ------------------------- POST Method ------------------------- */
 
 const insertPost = async function (data) {
@@ -17,12 +13,28 @@ const insertPost = async function (data) {
     return repJson;
 }
 
+/* ------------------------- GET Method(to display cart content) ------------------------- */
+
+const request = new XMLHttpRequest();
+const products = localStorage.getItem('products');
+const uri = 'http://localhost:3000/api/teddies/' + products;
+
+request.onreadystatechange = function () {
+    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+        response = JSON.parse(this.responseText);
+        renderCart(response);
+    }
+};
+
+request.open('GET', uri);
+request.send();
+
 /* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', function (e) {
     e.preventDefault();
 
-    console.log('clap')
+    console.log('clap');
 
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
@@ -41,8 +53,35 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
 });
 
 
+/* ------------------------- Display Cart Content ------------------------- */
+const cartView = document.getElementById('cartView');
 
-/* ------------------------- Cart functions ------------------------- */
+function renderCart(data) {
+
+    const table = document.createElement('table');
+    const row = document.createElement('tr');
+    const tfoot = document.createElement('tfoot');
+
+    table.innerHTML += "<tr><th>Mes achats</th><th>Couleur</th><th>Prix</th></tr>";
+    row.innerHTML += "<td>" + "<img class=\"cartImage\" src=\"" + data.imageUrl + "\">" + data.name + "</td><td>" + data.colors[0] + "</td><td>" + data.price / 100 + " €</td>"
+    tfoot.innerHTML += "<tr><td>Sum</td><td>" + data.price + "</td></tr>";
+
+    cartView.appendChild(table);
+    table.appendChild(row);
+    //tfoot.appendChild(row);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------- Cart functions -------------------------
 
 function incrementCart(ev) {
 
@@ -70,3 +109,4 @@ function errorMessage(err) {
 }
 
 
+ */

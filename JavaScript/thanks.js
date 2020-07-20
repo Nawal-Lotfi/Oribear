@@ -1,3 +1,5 @@
+/* ------------------------- Display Thanks ------------------------- */
+
 function renderThanks(data) {
     const contact = JSON.parse(localStorage.getItem('contactData'));
     const section = document.getElementById('section');
@@ -11,3 +13,5 @@ function renderThanks(data) {
 };
 
 renderThanks();
+
+/* ------------------------- Display Cart Content ------------------------- */

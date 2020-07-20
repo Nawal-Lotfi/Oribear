@@ -127,6 +127,23 @@ body .card {
   margin: auto;
 }
 
+/* ------------------------- Cart View ------------------------- */
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 80%;
+}
+
+table tr {
+  border-bottom: 1px solid black;
+}
+
+.cartImage {
+  width: 250px;
+  height: 175px;
+}
+
 /* ------------------------- Form ------------------------- */
 form {
   margin: 0.5em auto;

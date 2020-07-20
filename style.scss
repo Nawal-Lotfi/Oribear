@@ -114,6 +114,23 @@ body{
     }
 }
 
+/* ------------------------- Cart View ------------------------- */
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 80%;
+    tr{
+        border-bottom: 1px solid black;
+    }
+}
+
+.cartImage{
+    width: 250px;
+    height: 175px;
+}
+
 /* ------------------------- Form ------------------------- */
 
 form{
