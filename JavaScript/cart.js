@@ -32,7 +32,7 @@ request.send();
 /* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', function (e) {
-    e.preventDefault();
+    //e.preventDefault();
 
     console.log('clap');
 
