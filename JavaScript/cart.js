@@ -58,17 +58,18 @@ const cartView = document.getElementById('cartView');
 
 function renderCart(data) {
 
-    const table = document.createElement('table');
+    const table = document.createElement('tbody');
     const row = document.createElement('tr');
     const tfoot = document.createElement('tfoot');
+    tfoot.setAttribute('class', 'sum');
 
     table.innerHTML += "<tr><th>Mes achats</th><th>Couleur</th><th>Prix</th></tr>";
     row.innerHTML += "<td>" + "<img class=\"cartImage\" src=\"" + data.imageUrl + "\">" + data.name + "</td><td>" + data.colors[0] + "</td><td>" + data.price / 100 + " €</td>"
-    tfoot.innerHTML += "<tr><td>Sum</td><td>" + data.price + "</td></tr>";
+    tfoot.innerHTML += "<tr><td>Total</td><td>" + data.price / 100 + " €</td></tr>";
 
     cartView.appendChild(table);
     table.appendChild(row);
-    //tfoot.appendChild(row);
+    table.appendChild(tfoot);
 }
 
 
