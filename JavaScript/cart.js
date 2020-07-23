@@ -13,10 +13,10 @@ const insertPost = async function (data) {
     return repJson;
 }
 
-/* ------------------------- GET Method(to display cart content) ------------------------- */
+/* ------------------------- GET Method(to display cart content) -------------------------
 
 const request = new XMLHttpRequest();
-const products = localStorage.getItem('products');
+const products = localStorage.getItem('product');
 const uri = 'http://localhost:3000/api/teddies/' + products;
 
 request.onreadystatechange = function () {
@@ -27,7 +27,7 @@ request.onreadystatechange = function () {
 };
 
 request.open('GET', uri);
-request.send();
+request.send(); */
 
 /* ------------------------- Localstorage and Cart ------------------------- */
 
@@ -57,6 +57,9 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
 const cartView = document.getElementById('cartView');
 
 function renderCart(data) {
+    const teddy = JSON.parse(localStorage.getItem('product'));
+
+
 
     const table = document.createElement('tbody');
     const row = document.createElement('tr');
@@ -64,15 +67,17 @@ function renderCart(data) {
     tfoot.setAttribute('class', 'sum');
 
     table.innerHTML += "<tr><th>Mes achats</th><th>Couleur</th><th>Prix</th></tr>";
-    row.innerHTML += "<td>" + "<img class=\"cartImage\" src=\"" + data.imageUrl + "\">" + data.name + "</td><td>" + data.colors[0] + "</td><td>" + data.price / 100 + " €</td>"
-    tfoot.innerHTML += "<tr><td>Total</td><td>" + data.price / 100 + " €</td></tr>";
 
+    for (let i in teddy) {
+        row.innerHTML += "<td>" + "<img class=\"cartImage\" src=\"" + teddy[i].image + "\">" + teddy[i].name + "</td><td>" + teddy[i].color + "</td><td>" + teddy[i].price / 100 + " €</td>"
+        tfoot.innerHTML += "<tr><td>Total</td><td>" + teddy[i].price + " €</td></tr>";
+    }
     cartView.appendChild(table);
     table.appendChild(row);
     table.appendChild(tfoot);
 }
 
-
+renderCart();
 
 
 

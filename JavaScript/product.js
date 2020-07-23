@@ -39,51 +39,33 @@ function renderHTML(data) {
 /* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('product').addEventListener('click', function (a) {
-    //a.preventDefault();
+    a.preventDefault();
+    const color = document.getElementById('colorChoice');
 
-    const products = [idUrl]
+    let teddies = {
+        id: response._id,
+        name: response.name,
+        color: color.value,
+        price: response.price,
+        image: response.imageUrl
+    }
 
-    localStorage.setItem('products', products);
+    const teddiesAdded = localStorage.getItem('product');
+    if (teddiesAdded) {
+        teddiesInCArt = JSON.parse(teddiesAdded);
+        teddiesInCArt.push(teddies);
+        localStorage.setItem('product', JSON.stringify(teddiesInCArt));
+        alert('Ajouté au panier !');
+    } else {
+        teddiesInCArt = [];
+        teddiesInCArt.push(teddies);
+        localStorage.setItem('product', JSON.stringify(teddiesInCArt));
+        alert('Ajouté au panier !');
+    }
+
+
+    //products.push(teddies);
+    //localStorage.setItem('products', JSON.stringify(products));
+
+    //alert(response.name + ' a été ajouté à votre panier !')
 });
-
-
-
-
-// <form class=\"colorSelect\"><label for=\"Colors\">Choisir une couleur : </label><br><select name=\"colors\"><option value=\"" + data.colors[0] + "\">" + data.colors[0] + "</option><option value=\"" + data.colors[1] + "\">" + data.colors[1] + "</option><option value=\"" + data.colors[2] + "\">" + data.colors[2] + "</option><option value=\"" + data.colors[3] + "\">" + data.colors[3] + "</option></select></form>
-
-
-/*
-const params = new URLSearchParams(window.location.search);
-
-let product = null;
-let url = 'http://localhost:3000/api/teddies/' + params.get('id');
-
-async function retrieveContent(url) {
-    let result = await fetch(url).then(response => {
-        return response.json();
-    })
-    return result;
-}
-
-retrieveContent(url).then(productSelected => {
-    let container = document.getElementById('product-container');
-    container.innerHTML = createArticleHtml(productSelected);
-    product = productSelected;
-});
-*/
-
-/*
-function renderHTML(data) {
-    const parameters = new URLSearchParams(window.location.search);
-    const id = parameters.get("id");
-
-    const image = document.getElementsByClassName("teddysImage");
-    const name = document.getElementsByClassName("teddysName");
-    const para = document.getElementsByClassName("teddysDescription");
-
-    image.innerHTML = "<img"
-};
-
-renderHTML();
-
-*/
