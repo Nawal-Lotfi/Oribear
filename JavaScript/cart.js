@@ -58,22 +58,19 @@ const cartView = document.getElementById('cartView');
 
 function renderCart(data) {
     const teddy = JSON.parse(localStorage.getItem('product'));
-
-
-
     const table = document.createElement('tbody');
-    const row = document.createElement('tr');
     const tfoot = document.createElement('tfoot');
     tfoot.setAttribute('class', 'sum');
 
     table.innerHTML += "<tr><th>Mes achats</th><th>Couleur</th><th>Prix</th></tr>";
 
     for (let i in teddy) {
-        row.innerHTML += "<td>" + "<img class=\"cartImage\" src=\"" + teddy[i].image + "\">" + teddy[i].name + "</td><td>" + teddy[i].color + "</td><td>" + teddy[i].price / 100 + " €</td>"
-        tfoot.innerHTML += "<tr><td>Total</td><td>" + teddy[i].price + " €</td></tr>";
+        const row = document.createElement('tr');
+        row.innerHTML += "<td><img class=\"cartImage\" src=\"" + teddy[i].image + "\"></td><td>" + teddy[i].name + "</td><td>" + teddy[i].color + "</td><td>" + teddy[i].price / 100 + " €</td>"
+        table.appendChild(row);
     }
     cartView.appendChild(table);
-    table.appendChild(row);
+    tfoot.innerHTML += "<tr><td>Total</td><td>" + teddy.price + " €</td></tr>";
     table.appendChild(tfoot);
 }
 
