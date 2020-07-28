@@ -195,4 +195,9 @@ form button {
             flex-direction: column;
   }
 }
+
+/* ------------------------- Responsive ------------------------- */
+.colorChoice {
+  margin-top: 25px;
+}
 /*# sourceMappingURL=style.css.map */

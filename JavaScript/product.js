@@ -38,8 +38,8 @@ function renderHTML(data) {
 };
 /* ------------------------- Localstorage and Cart ------------------------- */
 
-document.getElementById('product').addEventListener('click', function (a) {
-    a.preventDefault();
+document.getElementById('addTeddy').addEventListener('click', function (a) {
+    //a.preventDefault();
     const color = document.getElementById('colorChoice');
 
     let teddies = {
