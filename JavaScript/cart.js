@@ -58,29 +58,58 @@ const cartView = document.getElementById('cartView');
 
 function renderCart(data) {
     const teddy = JSON.parse(localStorage.getItem('product'));
-    const table = document.createElement('tbody');
+    var table = document.createElement('tbody');
+    table.setAttribute('id', 'table');
     const tfoot = document.createElement('tfoot');
-    tfoot.setAttribute('class', 'sum');
+    tfoot.setAttribute('id', 'sum');
 
     table.innerHTML += "<tr><th>Mes achats</th><th>Couleur</th><th>Prix</th></tr>";
 
     for (let i in teddy) {
         const row = document.createElement('tr');
-        row.innerHTML += "<td><img class=\"cartImage\" src=\"" + teddy[i].image + "\"></td><td>" + teddy[i].name + "</td><td>" + teddy[i].color + "</td><td>" + teddy[i].price / 100 + " €</td>"
+        row.innerHTML += "<td><img class=\"cartImage\" src=\"" + teddy[i].image + "\"></td><td>" + teddy[i].name + "</td><td>" + teddy[i].color + "</td><td>" + teddy[i].price / 100 + " €</td><td><button class=\"removeButton\">x</button></td > "
         table.appendChild(row);
     }
+
     cartView.appendChild(table);
     tfoot.innerHTML += "<tr><td>Total</td><td>" + teddy.price + " €</td></tr>";
     table.appendChild(tfoot);
+
+
+    var table = document.getElementById('table'), sumVal = 0;
+
+    for (i = 1; i < table.rows.length; i++) {
+        sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
+    }
+
+    var sumVal = document.getElementById('sum').innerHTML = "Total = " + sumVal + " €";
 }
 
 renderCart();
 
+function removeItem() {
+    const removeItemButton = document.getElementsByClassName('removeButton');
+    for (i = 0; i < removeItemButton.length; i++) {
+        const button = removeItemButton[i];
+        button.addEventListener('click', function (event) {
+            const buttonClicked = event.target;
+            buttonClicked.parentElement.parentElement.remove();
+            updateCartTotal();
+        })
+    }
 
+}
 
+removeItem();
 
+function updateCartTotal() {
+    var table = document.getElementById('table'), sumVal = 0;
+    for (i = 1; i < table.rows.length; i++) {
+        sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
+    }
 
-
+    var sumVal = document.getElementById('sum').innerHTML = "Total = " + sumVal + " €";
+}
 
 
 

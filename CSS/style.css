@@ -139,6 +139,11 @@ table tr {
   border-bottom: 1px solid black;
 }
 
+table button {
+  background: red;
+  border-radius: 15%;
+}
+
 .cartImage {
   width: 250px;
   height: 175px;
