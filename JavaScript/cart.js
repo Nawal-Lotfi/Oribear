@@ -75,7 +75,7 @@ function renderCart(data) {
     const tfoot = document.createElement('tfoot');
     tfoot.setAttribute('id', 'sum');
 
-    table.innerHTML += "<tr><th>Mes achats</th><th>Couleur</th><th>Prix</th></tr>";
+    table.innerHTML += "<tr><th>Mes achats</th><th>Teddy</th><th>Couleur</th><th>Prix</th></tr>";
 
     for (let i in teddy) {
         const row = document.createElement('tr');
