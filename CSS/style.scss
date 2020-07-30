@@ -65,7 +65,11 @@ body{
         margin-top: 30px;
         font-family: "Sofia Regular";
         flex-wrap: wrap;
-        
+        img{
+            width: 32vh;
+            height: 22vh;
+            margin: auto;
+        }
     }
 }
 
@@ -98,6 +102,7 @@ body{
 }
 
 .product{
+    margin-bottom: 45px;
     display: flex;
     flex-direction: column;
     .teddyImage{
@@ -191,6 +196,16 @@ form{
         display: flex;
         flex-direction: column;
     }
+    .product{
+        margin: 30px 17px 0px 17px;
+        h1{
+            font-size: 22px;
+        }
+        .teddyImage{
+            width: 40vh;
+            height: 30vh;
+        }
+        }
 }
 
 
