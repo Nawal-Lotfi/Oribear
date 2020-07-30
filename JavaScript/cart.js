@@ -13,6 +13,23 @@ const insertPost = async function (data) {
     return repJson;
 }
 
+
+/* ------------------------- Cart Icon Display ------------------------- */
+
+function displayQuantity() {
+    const quantityInCart = JSON.parse(localStorage.getItem('product')).length;
+    const cart = document.getElementById('cartQuantity');
+    const div = document.createElement('div');
+
+
+    cart.innerHTML += '<p>' + quantityInCart + '</p>'
+
+
+
+}
+
+displayQuantity();
+
 /* ------------------------- GET Method(to display cart content) -------------------------
 
 const request = new XMLHttpRequest();
@@ -32,10 +49,6 @@ request.send(); */
 /* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', function (e) {
-    //e.preventDefault();
-
-    console.log('clap');
-
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const address = document.getElementById('address').value;
@@ -51,7 +64,6 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     const myJSON = JSON.stringify(contact);
     localStorage.setItem('contactData', myJSON);
 });
-
 
 /* ------------------------- Display Cart Content ------------------------- */
 const cartView = document.getElementById('cartView');

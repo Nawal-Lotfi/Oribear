@@ -22,6 +22,14 @@
     margin: auto;
 }
 
+#cartQuantity{
+    color: white;
+    font-weight: bold;
+    position: relative;
+    bottom: 20px;
+    left: 50px;
+}
+
 .cart{
     background-color:rgba(255, 255, 255, 0.5);
     position: absolute;
@@ -145,7 +153,7 @@ table{
 
 form{
     margin: 0.5em auto;
-    width: 450px;
+    width: 75vh;
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
@@ -160,6 +168,7 @@ form{
         width: 300px;
         box-sizing: border-box;
         border: 1px solid #999;
+        width: 55vh;
     }
     button{
         margin-left: 6em;
