@@ -6,18 +6,17 @@ window.location.href = 'thanks.html?orderId=' + response.orderid;
 /* ------------------------- Display Thanks ------------------------- */
 
 function renderThanks(data) {
-    const contact = JSON.parse(localStorage.getItem('contactData'));
-    const section = document.getElementById('section');
-    const orderId = localStorage.getItem('orderId');
+    const contact = JSON.parse(localStorage.getItem('contactData'));    // Récupère le nom et prénom de l'utilisateur
+    const section = document.getElementById('section'); // Emplacement du contenu que l'on va créer
+    const orderId = localStorage.getItem('orderId');    //orderId à afficher pour la validation du panier
 
     const article = document.createElement('article');
     article.setAttribute('id', 'thanks');
 
     article.innerHTML += "<p style=\"text-align: center; margin-top: 75px;\" class=\"blop\">Merci " + contact.firstName + " " + contact.lastName + " pour votre confiance envers Orinoco !<br> Vous avez commandé " + JSON.parse(localStorage.product).length + " articles qui vous seront expédiés dans les plus brefs délais.<br> Votre numéro de commande est le " + orderId + ", conservez le précieusement.</p>";
+    //contenu créé en HTML
 
-    section.appendChild(article);
+    section.appendChild(article); //rattachement du contenu à la section ciblée
 };
 
 renderThanks();
-
-/* ------------------------- Display Cart Content ------------------------- */
