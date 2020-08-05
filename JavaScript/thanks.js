@@ -1,3 +1,8 @@
+/* const str = window.location;
+const url = new URL(str);
+const idURL = url.searchParams.get('orderId');
+window.location.href = 'thanks.html?orderId=' + response.orderid;
+
 /* ------------------------- Display Thanks ------------------------- */
 
 function renderThanks(data) {
@@ -7,7 +12,7 @@ function renderThanks(data) {
     const article = document.createElement('article');
     article.setAttribute('id', 'thanks');
 
-    article.innerHTML += "<p style=\"text-align: center; margin-top: 75px;\" class=\"blop\">Merci " + contact.firstName + " " + contact.lastName + " pour votre confiance envers Orinoco !<br> Votre commande vous sera envoyée dans les plus brefs délais.</p>";
+    article.innerHTML += "<p style=\"text-align: center; margin-top: 75px;\" class=\"blop\">Merci " + contact.firstName + " " + contact.lastName + " pour votre confiance envers Orinoco !<br> Vous avez commandé " + JSON.parse(localStorage.product).length + " articles qui vous seront expédiés dans les plus brefs délais.</p>";
 
     section.appendChild(article);
 };

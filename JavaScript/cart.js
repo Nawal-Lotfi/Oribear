@@ -1,9 +1,8 @@
 /* ------------------------- POST Method ------------------------- */
 
-const insertPost = async function (data) {
-    console.log(data);
+const insertPost = async function (data) { //fonction pour envoyer les données (utilisateur et tableau de produits) à l'API pour effectuer une commande
     let response = await fetch('http://localhost:3000/api/teddies/order', {
-        method: 'POST',
+        method: 'POST', //méthode POST puisqu'il s'agit d'un envoi
         headers: {
             'Content-Type': 'application/json'
         },
@@ -30,42 +29,35 @@ function displayQuantity() {
 
 displayQuantity();
 
-/* ------------------------- GET Method(to display cart content) -------------------------
-
-const request = new XMLHttpRequest();
-const products = localStorage.getItem('product');
-const uri = 'http://localhost:3000/api/teddies/' + products;
-
-request.onreadystatechange = function () {
-    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-        response = JSON.parse(this.responseText);
-        renderCart(response);
-    }
-};
-
-request.open('GET', uri);
-request.send(); */
-
-/* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', function (e) {
+    e.preventDefault()
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const address = document.getElementById('address').value;
     const city = document.getElementById('city').value;
     const email = document.getElementById('email').value;
 
+    let teddiesAdded = JSON.parse(localStorage.getItem('product'));
+    let products = [];
+
+    for (i = 0; i < teddiesAdded.length; i++) {
+        products.push(teddiesAdded[i].id)
+    }
+
     const contact = { "firstName": firstName, "lastName": lastName, "address": address, "city": city, "email": email };
-    const products = [localStorage.getItem('products')];
     const order = { contact, products };
 
-    insertPost({ "contact": contact, "products": products }).then(data => console.log(data));
+    insertPost({ "contact": contact, "products": products }).then(data => console.log(data)).then(function (response) {
+        localStorage.setItem('orderId', response.orderId)
+    });
 
     const myJSON = JSON.stringify(contact);
     localStorage.setItem('contactData', myJSON);
 });
 
 /* ------------------------- Display Cart Content ------------------------- */
+
 const cartView = document.getElementById('cartView');
 
 function renderCart(data) {
@@ -123,34 +115,18 @@ function updateCartTotal() {
     var sumVal = document.getElementById('sum').innerHTML = "Total = " + sumVal + " €";
 }
 
+const sumVal = document.getElementById('sum').innerHTML;
+
+console.log(sumVal);
 
 
-/* ------------------------- Cart functions -------------------------
 
-function incrementCart(ev) {
 
+let teddiesAdded = JSON.parse(localStorage.getItem('product'));
+let products = [];
+
+for (i = 0; i < teddiesAdded.length; i++) {
+    products.push(teddiesAdded[i].id)
 }
 
-function decrementCart(ev) {
-
-}
-
-function getProducts(success, failure) {
-
-}
-
-function showProducts(products) {
-
-}
-
-function addItem(ev) {
-
-}
-
-function errorMessage(err) {
-
-    console.error(err);
-}
-
-
- */
+console.log(products);
