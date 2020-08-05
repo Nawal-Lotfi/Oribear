@@ -9,6 +9,7 @@ const insertPost = async function (data) { //fonction pour envoyer les données 
         body: JSON.stringify(data)
     })
     let repJson = await response.json();
+    localStorage.setItem('orderId', repJson.orderId);
     return repJson;
 }
 
@@ -31,7 +32,7 @@ displayQuantity();
 
 
 document.getElementById('submitButton').addEventListener('click', function (e) {
-    e.preventDefault()
+    //e.preventDefault()
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const address = document.getElementById('address').value;
@@ -48,9 +49,7 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     const contact = { "firstName": firstName, "lastName": lastName, "address": address, "city": city, "email": email };
     const order = { contact, products };
 
-    insertPost({ "contact": contact, "products": products }).then(data => console.log(data)).then(function (response) {
-        localStorage.setItem('orderId', response.orderId)
-    });
+    insertPost({ "contact": contact, "products": products })
 
     const myJSON = JSON.stringify(contact);
     localStorage.setItem('contactData', myJSON);
@@ -118,15 +117,3 @@ function updateCartTotal() {
 const sumVal = document.getElementById('sum').innerHTML;
 
 console.log(sumVal);
-
-
-
-
-let teddiesAdded = JSON.parse(localStorage.getItem('product'));
-let products = [];
-
-for (i = 0; i < teddiesAdded.length; i++) {
-    products.push(teddiesAdded[i].id)
-}
-
-console.log(products);
