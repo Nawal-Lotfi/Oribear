@@ -23,9 +23,6 @@ function displayQuantity() {    // affiche un chiffre blanc sous l'icône du pan
 
 
     cart.innerHTML += '<p>' + quantityInCart + '</p>'   //création du HTML en question, en l'occurence juste un chiffre basé sur le storage.length
-
-
-
 }
 
 displayQuantity();

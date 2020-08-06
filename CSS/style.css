@@ -13,13 +13,13 @@
   src: url("fonts/uglyyy.ttf") type("Truetype");
 }
 
-.navbar-brand {
-  font-family: "coertschrift_dik", "Uglyyy";
+/* ------------------------------- header ------------------------------- */
+nav img {
+  margin-right: 12px;
 }
 
-#colorChoice {
-  width: 8em;
-  margin: auto;
+.navbar-brand {
+  font-family: "coertschrift_dik", "Uglyyy";
 }
 
 #cartQuantity {
@@ -59,6 +59,34 @@
   right: 0px;
   top: 5px;
   cursor: pointer;
+}
+
+/* ------------------------------- footer ------------------------------- */
+footer {
+  margin-top: 15vh;
+  height: 14vh;
+}
+
+footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style-type: none;
+  color: whitesmoke;
+}
+
+.footer-logo {
+  text-align: center;
+  padding-top: 5px;
+}
+
+/* ------------------------------- body and content ------------------------------- */
+#colorChoice {
+  width: 8em;
+  margin: auto;
 }
 
 body {
@@ -142,7 +170,7 @@ body .card img {
   margin: auto;
 }
 
-/* ------------------------- Cart View ------------------------- */
+/* ------------------------------- Cart View ------------------------------- */
 table {
   margin-left: auto;
   margin-right: auto;
@@ -164,7 +192,7 @@ table button {
   height: 175px;
 }
 
-/* ------------------------- Form ------------------------- */
+/* ------------------------------- Form ------------------------------- */
 form {
   margin: 0.5em auto;
   width: 75vh;
@@ -193,13 +221,13 @@ form button {
   margin-left: 6em;
 }
 
-/* ------------------------- Thanks ------------------------- */
+/* ------------------------------- Thanks ------------------------------- */
 .blop p {
   text-align: center;
   color: red;
 }
 
-/* ------------------------- Responsive ------------------------- */
+/* ------------------------------- Responsive ------------------------------- */
 @media all and (max-width: 1024px) {
   .card-deck {
     display: -webkit-box;
@@ -222,7 +250,7 @@ form button {
   }
 }
 
-/* ------------------------- Responsive ------------------------- */
+/* ------------------------------- Responsive ------------------------------- */
 .colorChoice {
   margin-top: 25px;
 }

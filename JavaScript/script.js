@@ -31,6 +31,17 @@ function renderHTML(data) { //fonction de création du contenu HTML
     products.appendChild(div); //pour lier le contenu créé à l'ancre 'products' dans le DOM
 };
 
+/* ------------------------- Cart Icon Display ------------------------- */
 
+function displayQuantity() {    // affiche un chiffre blanc sous l'icône du panier pour savoir combien d'articles y sont stockés sans besoin de l'ouvrir
+    const quantityInCart = JSON.parse(localStorage.getItem('product')).length;  // utilise la longueur du tableau pour savoir le nombre d'articles (1 article == 1 ligne dans le tableau)
+    const cart = document.getElementById('cartQuantity');
+    const div = document.createElement('div');
+
+
+    cart.innerHTML += '<p>' + quantityInCart + '</p>'   //création du HTML en question, en l'occurence juste un chiffre basé sur le storage.length
+}
+
+displayQuantity();
 
 

@@ -13,14 +13,19 @@
     src:url('fonts/uglyyy.ttf') type('Truetype');
 }
 
+/* ------------------------------- header ------------------------------- */
+
+nav{
+    img{
+        margin-right: 12px;
+    }
+}
+
 .navbar-brand{
     font-family: "coertschrift_dik", "Uglyyy";
 }
 
-#colorChoice{
-    width: 8em;
-    margin: auto;
-}
+
 
 #cartQuantity{
     color: white;
@@ -58,6 +63,35 @@
     cursor: pointer;
 }
 
+/* ------------------------------- footer ------------------------------- */
+
+footer{
+    margin-top: 15vh;
+    height: 14vh;
+    ul{
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        color: whitesmoke;
+    }
+}
+
+.footer-link{
+    
+}
+
+.footer-logo{
+    text-align: center;
+    padding-top: 5px;
+}
+
+/* ------------------------------- body and content ------------------------------- */
+
+#colorChoice{
+    width: 8em;
+    margin: auto;
+}
+
 body{
     background-color: #ffebeb;
     .card{
@@ -89,8 +123,6 @@ body{
        
     }
 }
-
-
 
 .carouselNo1{
     margin: auto;
@@ -127,7 +159,7 @@ body{
     }
 }
 
-/* ------------------------- Cart View ------------------------- */
+/* ------------------------------- Cart View ------------------------------- */
 
 table{
     margin-left: auto;
@@ -146,15 +178,12 @@ table{
     }
 }
 
-
-
-
 .cartImage{
     width: 250px;
     height: 175px;
 }
 
-/* ------------------------- Form ------------------------- */
+/* ------------------------------- Form ------------------------------- */
 
 form{
     margin: 0.5em auto;
@@ -180,7 +209,7 @@ form{
     }
 }
 
-/* ------------------------- Thanks ------------------------- */
+/* ------------------------------- Thanks ------------------------------- */
 
 .blop{
     p{
@@ -189,7 +218,7 @@ form{
     }
 }
 
-/* ------------------------- Responsive ------------------------- */
+/* ------------------------------- Responsive ------------------------------- */
 
 @media all and (max-width: 1024px) {
     .card-deck{
@@ -209,7 +238,7 @@ form{
 }
 
 
-/* ------------------------- Responsive ------------------------- */
+/* ------------------------------- Responsive ------------------------------- */
 
 .colorChoice{
     margin-top: 25px;
