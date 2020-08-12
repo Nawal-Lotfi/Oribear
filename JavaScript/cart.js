@@ -68,12 +68,22 @@ function renderCart(data) { // fonction créant le panier sous forme de tableau 
 
     for (let i in teddy) {  // crée une tableRow pour chaque objet teddy dans le localStorage
         const row = document.createElement('tr');
-        row.innerHTML += "<td><img class=\"cartImage\" src=\"" + teddy[i].image + "\"></td><td>" + teddy[i].name + "</td><td>" + teddy[i].color + "</td><td>" + teddy[i].price / 100 + " €</td><td><button class=\"removeButton\">x</button></td > "
+        row.innerHTML += `<td>
+        <img class="cartImage" src="${teddy[i].image}">
+        </td>
+        <td>${teddy[i].name}</td>
+        <td>${teddy[i].color}</td>
+        <td>${teddy[i].price / 100} €</td>
+        <td><button class="removeButton">x</button></td>`
         table.appendChild(row);
     }
 
     cartView.appendChild(table);    // création du tableFooter avec le prix total
-    tfoot.innerHTML += "<tr><td>Total</td><td>" + teddy.price + " €</td></tr>";
+    tfoot.innerHTML += `<tr>
+    <td>Total</td>
+    <td>${teddy.price} €</td>
+    </tr>`;
+
     table.appendChild(tfoot);
 
 
@@ -83,7 +93,7 @@ function renderCart(data) { // fonction créant le panier sous forme de tableau 
         sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
     }
 
-    var sumVal = document.getElementById('sum').innerHTML = "Total = " + sumVal + " €";
+    var sumVal = document.getElementById('sum').innerHTML = `Total = ${sumVal} €`;
 }
 
 renderCart();
@@ -98,7 +108,6 @@ function removeItem() { // fonction servant à supprimer un élément du tableau
             updateCartTotal();  // mets le prix à jour chaque fois qu'un élément est ajouté (ou ici supprimé)
         })
     }
-
 }
 
 removeItem();
@@ -109,7 +118,7 @@ function updateCartTotal() {    // fonction de mise à jour du prix total selon 
         sumVal = sumVal + parseInt(table.rows[i].cells[3].innerHTML);
     }
 
-    var sumVal = document.getElementById('sum').innerHTML = "Total = " + sumVal + " €"; // création du contenu en HTML
+    var sumVal = document.getElementById('sum').innerHTML = `Total = ${sumVal} €`; // création du contenu en HTML
 }
 
 const sumVal = document.getElementById('sum').innerHTML;

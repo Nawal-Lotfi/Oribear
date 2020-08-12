@@ -1,20 +1,10 @@
-const request = new XMLHttpRequest();
-const pageLocation = window.location; //récupère les infos de la page pour pouvoir travailler avec l'URL
-const url = new URL(pageLocation); //récupère l'URL en vue de pouvoir travailler avec l'ID en paramètre
-const idUrl = url.searchParams.get("id"); //récupère l'ID placée en paramètre de l'URL
-const uri = 'http://localhost:3000/api/teddies/' + idUrl; //pour correspondre à la documentation et récupérer un teddy situé à ../teddies/_id
+
 const product = document.querySelector('#product');
 const section = document.getElementsByTagName('section');
 
-request.onreadystatechange = function () { //requête pour aller chercher tous les teddies de l'api
-    if (this.readyState == XMLHttpRequest.DONE && this.status == 200) { //doit avoir été validée avec une réponse 200 pour être acceptée
-        response = JSON.parse(this.responseText); //parse de la réponse en JSON
-        renderHTML(response); //argument 'response' qui sera réutilisé dans la fonction de création dynamique du contenu
-    }
-};
-
-request.open('GET', uri);
-request.send();
+const idUrl = new URL(window.location).searchParams.get('id');
+const url = 'http://localhost:3000/api/teddies/' + idUrl
+XMLRequest(url);
 
 
 function renderHTML(data) { //fonction servant à la création dynamique du contenu
@@ -22,7 +12,11 @@ function renderHTML(data) { //fonction servant à la création dynamique du cont
     const colors = data.colors; //récupère les couleurs disponibles du teddy dans l'API
     div.setAttribute('class', 'product');
 
-    div.innerHTML += "<img class=\"teddyImage\" src=\"" + data.imageUrl + "\"><h1 class=\"teddyName\">" + data.name + "</h1><p class=\"teddyDescription\">" + data.description + "</p><p class =\"teddyPrice\">" + data.price / 100 + " €</p><select id=\"colorChoice\"></select>";
+    div.innerHTML += `<img class="teddyImage" src="${data.imageUrl}">
+    <h1 class="teddyName">${data.name}</h1>
+    <p class="teddyDescription">${data.description}</p>
+    <p class ="teddyPrice">${data.price / 100} €</p>
+    <select id="colorChoice"></select>`;
     product.appendChild(div); //crée du contenu en fonction de data (donc en fonction de l'ID présentée en paramètre dans l'URL)
 
     const form = document.getElementById('colorChoice');
@@ -30,7 +24,7 @@ function renderHTML(data) { //fonction servant à la création dynamique du cont
     colors.forEach(displayColor); //Pour chaque couleur présente à l'URI ciblée, crée in input correspondant dans un formulaire déroulant, la fonction apparaît plus bas
 
     function displayColor(item) { //fonction en question qui affiche les couleurs
-        document.getElementById("colorChoice").innerHTML += "<option>" + item + "</option>";
+        document.getElementById("colorChoice").innerHTML += `<option>${item}</option>`;
     };
 
     div.appendChild(document.getElementById('addTeddy')); //attache le contenu créé au DOM
