@@ -3,7 +3,7 @@
 const request = new XMLHttpRequest();
 const products = document.querySelector('#products');
 const url = 'http://localhost:3000/api/teddies';
-const parameters = new URLSearchParams(window.location.search);
+//const parameters = new URLSearchParams(window.location.search);
 const section = document.getElementsByTagName('section');
 
 request.onreadystatechange = function () { //requête pour aller chercher tous les teddies de l'api

@@ -63,6 +63,9 @@ nav img {
 
 /* ------------------------------- footer ------------------------------- */
 footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
   margin-top: 15vh;
   height: 14vh;
 }
@@ -135,7 +138,6 @@ body .card img {
 }
 
 .product {
-  margin-bottom: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -247,6 +249,13 @@ form button {
   .product .teddyImage {
     width: 40vh;
     height: 30vh;
+  }
+  footer {
+    margin-top: 6vh;
+    height: 10vh;
+  }
+  footer ul li {
+    font-size: 22px;
   }
 }
 

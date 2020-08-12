@@ -66,6 +66,9 @@ nav{
 /* ------------------------------- footer ------------------------------- */
 
 footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
     margin-top: 15vh;
     height: 14vh;
     ul{
@@ -134,7 +137,6 @@ body{
 }
 
 .product{
-    margin-bottom: 45px;
     display: flex;
     flex-direction: column;
     .teddyImage{
@@ -234,6 +236,16 @@ form{
             width: 40vh;
             height: 30vh;
         }
+        }
+
+        footer{
+            margin-top: 6vh;
+            height: 10vh;
+            ul{
+                li{
+                font-size: 22px;
+            }
+            }
         }
 }
 
