@@ -1,6 +1,7 @@
 /* ------------------------- Page index ------------------------- */
+
 const url = 'http://localhost:3000/api/teddies/';
-XMLRequest(url);
+XMLRequest(url); // appelle la fonction de connexion à l'api définie dans reusable_functions.js
 
 /* ------------------------- Products rendering ------------------------- */
 
@@ -24,15 +25,6 @@ function renderHTML(data) { //fonction de création du contenu HTML
 };
 
 /* ------------------------- Cart Icon Display ------------------------- */
-
-function displayQuantity() {    // affiche un chiffre blanc sous l'icône du panier pour savoir combien d'articles y sont stockés sans besoin de l'ouvrir
-    const quantityInCart = JSON.parse(localStorage.getItem('product')).length;  // utilise la longueur du tableau pour savoir le nombre d'articles (1 article == 1 ligne dans le tableau)
-    const cart = document.getElementById('cartQuantity');
-    const div = document.createElement('div');
-
-
-    cart.innerHTML += `<p>${quantityInCart}</p>`   //création du HTML en question, en l'occurence juste un chiffre basé sur le storage.length
-}
 
 displayQuantity();
 

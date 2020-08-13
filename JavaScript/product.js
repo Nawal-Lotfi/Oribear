@@ -1,11 +1,14 @@
 
+/* ------------------------- Constants and API connexion ------------------------- */
+
 const product = document.querySelector('#product');
 const section = document.getElementsByTagName('section');
 
 const idUrl = new URL(window.location).searchParams.get('id');
-const url = 'http://localhost:3000/api/teddies/' + idUrl
-XMLRequest(url);
+const url = 'http://localhost:3000/api/teddies/' + idUrl // url + id définie en paramètre et initialisée dans la const idUrl
+XMLRequest(url); // requête de connexion à l'api définie dans le fichier XMLHttpRequest.js
 
+/* ------------------------- Localstorage and Cart ------------------------- */
 
 function renderHTML(data) { //fonction servant à la création dynamique du contenu
     const div = document.createElement('div');
@@ -30,6 +33,7 @@ function renderHTML(data) { //fonction servant à la création dynamique du cont
     div.appendChild(document.getElementById('addTeddy')); //attache le contenu créé au DOM
     div.appendChild(form);
 };
+
 /* ------------------------- Localstorage and Cart ------------------------- */
 
 document.getElementById('addTeddy').addEventListener('click', function (a) {
@@ -57,4 +61,8 @@ document.getElementById('addTeddy').addEventListener('click', function (a) {
         localStorage.setItem('product', JSON.stringify(teddiesInCart)); //envoie les données obtenues dans le localStorage
         alert('Ajouté au panier !'); //prévient l'utilisateur du bon déroulement de l'action
     }
+
+    displayQuantity();
+
+    location.reload();
 });

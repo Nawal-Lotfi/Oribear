@@ -9,27 +9,21 @@ const insertPost = async function (data) {  // fonction pour envoyer les donnée
         body: JSON.stringify(data) // stringify pour pouvoir exploiter les données obtenues/envoyées
     })
     let repJson = await response.json();    //la réponse en elle-même
+    console.log(repJson.orderId);
     localStorage.setItem('orderId', repJson.orderId);   //seul l'orderId nous intéresse pour la validation, c'est donc lui qu'on prend pour le garder dans le localStorage
     return repJson;
+
 }
 
 
 /* ------------------------- Cart Icon Display ------------------------- */
 
-function displayQuantity() {    // affiche un chiffre blanc sous l'icône du panier pour savoir combien d'articles y sont stockés sans besoin de l'ouvrir
-    const quantityInCart = JSON.parse(localStorage.getItem('product')).length;  // utilise la longueur du tableau pour savoir le nombre d'articles (1 article == 1 ligne dans le tableau)
-    const cart = document.getElementById('cartQuantity');
-    const div = document.createElement('div');
+displayQuantity(); // appelle la fonction définie dans reusable_functions.js
 
-
-    cart.innerHTML += '<p>' + quantityInCart + '</p>'   //création du HTML en question, en l'occurence juste un chiffre basé sur le storage.length
-}
-
-displayQuantity();
-
+/* ------------------------- Cart Icon Display ------------------------- */
 
 document.getElementById('submitButton').addEventListener('click', function (e) {    // fonction envoyant les données du cart+form à l'API
-    //e.preventDefault()    // A décommenter pour tester la fonction
+    e.preventDefault()    // A décommenter pour tester la fonction
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const address = document.getElementById('address').value;
