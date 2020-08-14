@@ -9,12 +9,9 @@ const insertPost = async function (data) {  // fonction pour envoyer les donnée
         body: JSON.stringify(data) // stringify pour pouvoir exploiter les données obtenues/envoyées
     })
     let repJson = await response.json();    //la réponse en elle-même
-    console.log(repJson.orderId);
-    localStorage.setItem('orderId', repJson.orderId);   //seul l'orderId nous intéresse pour la validation, c'est donc lui qu'on prend pour le garder dans le localStorage
     return repJson;
 
 }
-
 
 /* ------------------------- Cart Icon Display ------------------------- */
 
@@ -30,6 +27,7 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     const city = document.getElementById('city').value;
     const email = document.getElementById('email').value;
     // les 5 champs précédents sont ceux attendus pour créer un contact par l'api
+    const submitButton = document.getElementById('submitButton');
 
     let teddiesAdded = JSON.parse(localStorage.getItem('product')); // teddies qui seront envoyé dans le tableau
     let products = [];  // tableau qui accueillera les teddies
@@ -41,7 +39,12 @@ document.getElementById('submitButton').addEventListener('click', function (e) {
     const contact = { "firstName": firstName, "lastName": lastName, "address": address, "city": city, "email": email };
     const order = { contact, products };    // données attendues par l'API pour un 'POST' à ../../order
 
-    insertPost({ "contact": contact, "products": products })    // envoie de toutes ces données recueillies plus haut
+    //insertPost({ "contact": contact, "products": products })   // envoie de toutes ces données recueillies plus haut
+
+    insertPost({ "contact": contact, "products": products }).then(function (response) {
+
+        window.location.href = './thanks.html?orderId=' + response.orderId;
+    });
 
     const myJSON = JSON.stringify(contact);
     localStorage.setItem('contactData', myJSON);    // mise en storage de l'objet contact pour pouvoir le réutiliser dans les remerciements
@@ -67,8 +70,8 @@ function renderCart(data) { // fonction créant le panier sous forme de tableau 
         </td>
         <td>${teddy[i].name}</td>
         <td>${teddy[i].color}</td>
-        <td>${teddy[i].price / 100} €</td>
-        <td><button class="removeButton">x</button></td>`
+        <td>${teddy[i].price / 100} €</td>`
+        //<td><button class="removeButton">x</button></td>`
         table.appendChild(row);
     }
 
@@ -92,6 +95,7 @@ function renderCart(data) { // fonction créant le panier sous forme de tableau 
 
 renderCart();
 
+/*
 function removeItem() { // fonction servant à supprimer un élément du tableau
     const removeItemButton = document.getElementsByClassName('removeButton');
     for (i = 0; i < removeItemButton.length; i++) {
@@ -103,8 +107,9 @@ function removeItem() { // fonction servant à supprimer un élément du tableau
         })
     }
 }
-
+ 
 removeItem();
+*/
 
 function updateCartTotal() {    // fonction de mise à jour du prix total selon ajout / suppression d'articles
     var table = document.getElementById('table'), sumVal = 0;
